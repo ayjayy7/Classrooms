@@ -26,6 +26,7 @@ class Student(models.Model):
 	GENDER_CHOICES = ( (FEMALE, "Female"), (MALE, "Male") )
 	gender = models.CharField(max_length=7, choices=GENDER_CHOICES,)
 	classroom = models.ForeignKey(Classroom, default=1, on_delete=models.CASCADE)
+	exam_grade= models.IntegerField()
 
 	def get_absolute_url(self):
 		return reverse('classroom-detail', kwargs={'classroom_id':self.id})
